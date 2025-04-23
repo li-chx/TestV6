@@ -1,0 +1,15 @@
+name: Test IPv6 Connectivity
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test-ipv6:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check IPv6 Connectivity
+        run: |
+          echo "Pinging an IPv6 address..."
+          ping6 -c 4 ipv6.google.com || echo "IPv6 not supported"
